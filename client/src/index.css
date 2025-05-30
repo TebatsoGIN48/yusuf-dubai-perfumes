@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 6%; /* #0F0F0F */
+  --foreground: 47 85% 95%; /* #FDF5E6 */
+  --muted: 0 0% 16%; /* #2A2A2A */
+  --muted-foreground: 47 20% 70%; /* #B8B8B8 */
+  --popover: 0 0% 10%; /* #1A1A1A */
+  --popover-foreground: 47 85% 95%; /* #FDF5E6 */
+  --card: 0 0% 10%; /* #1A1A1A */
+  --card-foreground: 47 85% 95%; /* #FDF5E6 */
+  --border: 45 30% 25%; /* #413D36 */
+  --input: 45 30% 25%; /* #413D36 */
+  --primary: 45 70% 55%; /* #D4A574 */
+  --primary-foreground: 0 0% 6%; /* #0F0F0F */
+  --secondary: 0 0% 16%; /* #2A2A2A */
+  --secondary-foreground: 47 85% 95%; /* #FDF5E6 */
+  --accent: 45 70% 55%; /* #D4A574 */
+  --accent-foreground: 0 0% 6%; /* #0F0F0F */
+  --destructive: 0 84% 60%; /* #EF4444 */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+  --ring: 45 70% 55%; /* #D4A574 */
+  --radius: 0.5rem;
+  
+  /* Custom colors */
+  --deep-black: 0 0% 4%; /* #0A0A0A */
+  --rich-gold: 45 70% 55%; /* #D4A574 */
+  --charcoal: 0 0% 10%; /* #1A1A1A */
+  --bronze: 45 90% 35%; /* #B8860B */
+  --champagne: 47 85% 95%; /* #F7E7CE */
+  --dark-gold: 45 85% 30%; /* #8B6914 */
+  --warm-gray: 0 0% 18%; /* #2D2D2D */
+  --light-gold: 47 85% 95%; /* #FDF5E6 */
+}
+
+.dark {
+  --background: 0 0% 6%; /* #0F0F0F */
+  --foreground: 47 85% 95%; /* #FDF5E6 */
+  --muted: 0 0% 16%; /* #2A2A2A */
+  --muted-foreground: 47 20% 70%; /* #B8B8B8 */
+  --popover: 0 0% 10%; /* #1A1A1A */
+  --popover-foreground: 47 85% 95%; /* #FDF5E6 */
+  --card: 0 0% 10%; /* #1A1A1A */
+  --card-foreground: 47 85% 95%; /* #FDF5E6 */
+  --border: 45 30% 25%; /* #413D36 */
+  --input: 45 30% 25%; /* #413D36 */
+  --primary: 45 70% 55%; /* #D4A574 */
+  --primary-foreground: 0 0% 6%; /* #0F0F0F */
+  --secondary: 0 0% 16%; /* #2A2A2A */
+  --secondary-foreground: 47 85% 95%; /* #FDF5E6 */
+  --accent: 45 70% 55%; /* #D4A574 */
+  --accent-foreground: 0 0% 6%; /* #0F0F0F */
+  --destructive: 0 62% 30%; /* #DC2626 */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA */
+  --ring: 45 70% 55%; /* #D4A574 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-inter antialiased bg-background text-foreground;
+    background: hsl(var(--deep-black));
+    color: hsl(var(--light-gold));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .luxury-gradient {
+    background: linear-gradient(135deg, hsl(var(--rich-gold)) 0%, hsl(var(--bronze)) 100%);
+  }
+  
+  .dark-gradient {
+    background: linear-gradient(135deg, hsl(var(--deep-black)) 0%, hsl(var(--charcoal)) 100%);
+  }
+  
+  .luxury-glow {
+    box-shadow: 0 0 20px hsla(var(--rich-gold), 0.3);
+  }
+  
+  .golden-text {
+    background: linear-gradient(135deg, hsl(var(--rich-gold)), hsl(var(--bronze)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .product-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px hsla(var(--rich-gold), 0.2);
+  }
+  
+  .gold-border {
+    border: 1px solid hsla(var(--rich-gold), 0.3);
+  }
+  
+  .whatsapp-pulse {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes bgTransparent {
+    0% {
+      background: hsl(0 0% 0% / 1);
+    }
+    50% {
+      background: hsl(0 0% 0% / 0.7);
+    }
+    100% {
+      background: hsl(0 0% 0% / 1);
+    }
+  }
+  
+  .btn-hover:hover {
+    animation: bgTransparent 1s ease-in 1 forwards;
+  }
+}
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom Navigation Link Colors */
+.nav-text-men:hover,
+.nav-text-men.active {
+  color: hsl(200, 75%, 65%); /* Brighter Blue */
+}
+
+.nav-text-women:hover,
+.nav-text-women.active {
+  color: hsl(330, 75%, 75%); /* Brighter Rose/Pink */
+}
+
+.nav-text-unisex:hover,
+.nav-text-unisex.active {
+  color: hsl(150, 65%, 60%); /* Brighter Teal/Green */
+}

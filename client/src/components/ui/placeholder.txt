@@ -1,0 +1,1 @@
+This folder is for specific UI elements like Hero sections.
